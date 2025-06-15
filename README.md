@@ -16,5 +16,21 @@ Goodman's data is 31 serial numbers in 3 lines of text,
 
 Goodman figures out two basic things about the data:
 
-1. How close to a uniform distribution is this group of serial numbers?
-2. How large was the initial purchase of serial numbered items?
+1. How large was the initial purchase of serial numbered items?
+2. How close to a uniform distribution is this group of serial numbers?
+
+### Estimate of how many items were purchased and numbered
+
+Goodman's formula for estimating how many items got serial numbered is:
+
+p = d(k+1)/(k-1) - 1
+
+- **p** is "total production", the number of items that really got serial numbered
+- **d** is the numerical difference between maximum and minimum serial number
+- **k** is the number of serial numbers
+
+p = (2787 - 83)(31+1)/(31-1) - 1 = 2883.3
+
+### How close to a uniform distribution
+
+## Simulation
