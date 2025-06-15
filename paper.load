@@ -45,4 +45,6 @@ set ylabel "Distribution"
 set title "Recreation of fig 5.1 of Goodman (1954)"
 set xrange [0:2887]
 set yrange [0:33]
+set term png  size 1333,1000
+set out "goodman1954_fig5_1.png"
 plot $DATA with steps title "Cumulative distribution", $MAXDIFF with line title "Maximum difference c", f(x) with line title "Continuos distribution"
