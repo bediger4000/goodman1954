@@ -1,0 +1,48 @@
+# Data and continuous distribution from
+# Goodman, Leo A (1954), section 5
+$MAXDIFF << ENDDIFF
+895	5
+895	8.96
+ENDDIFF
+$DATA << EOD
+83	0
+135 1
+274 2
+380 3
+668 4
+895 5
+955 7
+964 7
+1113 8
+1174 9
+1210 10
+1344 11
+1387 12
+1414 13
+1610 14
+1668 15
+1689 16
+1756 17
+1865 18
+1874 19
+1880 20
+1936 21
+2005 22
+2006 23
+2065 24
+2157 25
+2220 26
+2224 27
+2396 28
+2543 29
+2787 30
+EOD
+f(x) = 0.011054 * x + -0.917465
+set key left
+set grid
+set xlabel "Serial Number"
+set ylabel "Distribution"
+set title "Recreation of fig 5.1 of Goodman (1954)"
+set xrange [0:2887]
+set yrange [0:33]
+plot $DATA with steps title "Cumulative distribution", $MAXDIFF with line title "Maximum difference c", f(x) with line title "Continuos distribution"
