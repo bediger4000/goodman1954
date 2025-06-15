@@ -60,9 +60,10 @@ func main() {
 	}
 
 	if *tsvOutput {
+		fmt.Printf("# production, samples, mean, std dev, distribution, est production, slope, y-offset, max diff S/N, max diff, kolmogorov stat, max diff step, S/N list\n")
 		fmt.Printf("%d\t%d\t%.02f\t%.02f\t%s\t", *p, *k, *mean, *stdDev, *distributionType)
 		fmt.Printf("%.0f\t%.05f\t%.05f\t", totalProduction, slope, yOffset)
-		fmt.Printf("%d\t%.04f\t%d\t", maxSN, maxDiff, maxStep)
+		fmt.Printf("%d\t%.04f\t%.04f\t%d\t", maxSN, maxDiff, maxDiff/float64(*k-2), maxStep)
 		leader := ""
 		for _, sn := range serialNumbers {
 			fmt.Printf("%s%d", leader, sn)
@@ -74,7 +75,7 @@ func main() {
 
 	if *gnuplotOutput {
 		fmt.Printf("# Max difference %.03f at %d\n", maxDiff, maxSN)
-		fmt.Printf("# Kolmogorov statistic %.05f\n", maxDiff/float64(*k))
+		fmt.Printf("# Kolmogorov statistic %.05f\n", maxDiff/float64(*k-2))
 		fmt.Printf("# estimated total production %.02f\n", totalProduction)
 		fmt.Println("$MAXDIFF << ENDDIFF")
 		fmt.Printf("%d\t%d\n", maxSN, maxStep)
