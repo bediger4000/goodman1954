@@ -33,4 +33,31 @@ p = (2787 - 83)(31+1)/(31-1) - 1 = 2883.3
 
 ### How close to a uniform distribution
 
+In section 3.2.4 of his paper, page numbered 108, Goodman 
+decides that a difference of 8 from a "continuous distribution"
+to a "cumulative distribution" means that the serial number
+sample matches the continuous distribution closely enough.
+
+The cumulative distribution is just the count so far of
+numerically ordered serial numbers, 1-indexed.
+His 31 serial numbers end up with a cumulative distribution like this:
+
+```
+83  0
+135 1
+274 2
+380 3
+...
+2396 28
+2543 29
+2787 30
+```
+
+His continuous distribution is a line from (83,0) to (2787.30)
+
+There's only one graphic in Goodman (1954), which shows cumulative
+and continuous distributions.
+
+![Goodman (1954) figure 5.1](goodman_fig_5_1.png)
+
 ## Simulation
