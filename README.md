@@ -61,3 +61,46 @@ and continuous distributions.
 ![Goodman (1954) figure 5.1](goodman_fig_5_1.png)
 
 ## Simulation
+
+I wrote a [program](sns.go) to simulate sampling serial numbers from a linear sequence.
+
+```
+  -T    tab separated value output on stdout
+  -g    gnuplot output on stdout
+  -k int
+        desired number of serial numbers (default 1000)
+  -m float
+        desired mean serial number (default 1443)
+  -p int
+        total production (default 10000)
+  -r int
+        how many trials to run (default 1)
+  -s float
+        desired standard deviation (default 100)
+  -t string
+        serial number distribution, "uniform", "normal" (default "uniform")
+```
+
+Tab separated value columns are:
+
+1. total production
+2. number of serial numbers sampled
+3. mean, only relevant for "normal" distribution
+4. std dev, only relevant for "normal" distribution
+5. distribution, "normal" or "uniform"
+6. estimated production
+7. slope
+8. y-offset  Slope and y-offset define a line, Goodman's "continuous destribution"
+9. serial number that has largest distance from that line
+10. the largest distance from the line
+11. largest difference/number of samples
+12. step, y-value of cumulative distribution at serial number value, column 9
+13. serial number list, comma separated
+
+Tab separated value output and [gnuplot]() output
+can't be done in the same run.
+
+It will only do multiple repetitions for tab separated value output
+
+Mean and standard deviation are only relevant for `-t normal`
+runs.
