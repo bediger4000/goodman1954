@@ -97,10 +97,23 @@ Tab separated value columns are:
 12. step, y-value of cumulative distribution at serial number value, column 9
 13. serial number list, comma separated
 
-Tab separated value output and [gnuplot]() output
+Tab separated value output and [gnuplot](http://gnuplot.info/) output
 can't be done in the same run.
 
 It will only do multiple repetitions for tab separated value output
 
 Mean and standard deviation are only relevant for `-t normal`
 runs.
+
+To get an image file from a simulation:
+
+```
+$ go build sns.go
+$ ./sns -k 31 -p 2885 -g | gnuplot
+$ ls -l goodman1954_uniform.png
+-rw-r--r-- 1 bediger bediger 43293 Jun 17 21:47 goodman1954_uniform.png
+```
+
+You will get an image similar to this:
+
+![example uniform distribution simulation](example_uniform.png)
